@@ -1,0 +1,236 @@
+<DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author"content="Maxim Ionescu"
+<meta lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/processing.js/1.6.0/processing.min.js"></script>
+<style>
+body{
+background-color:#777777;
+}
+
+#c1{border:solid black;
+position:absolute;
+top:13.5%;
+left:55%;
+}
+
+.container1{
+background-color:white;
+margin:10px;
+padding:10px;
+width:50%;
+border:solid #cccccc;
+border-width:5px;
+height:50%;
+position:absolute;;
+top:12.5%;
+}
+
+p{margin:0px;}
+p+p{margin-top:0px;}
+
+.header{
+text-align:left;
+font-size:40px;
+font-family:verdana;
+background-color:rgb(5,200,255);
+color:white;
+
+}
+#t1{
+position:absolute;
+top:6%;
+left:68%;
+color:white;
+font-size:15px;
+}
+
+.bb{
+background-color:#555555;
+height:110%;
+border:solid #aaaaaa;
+border-width:5px;
+}
+
+#c2{
+position:absolute;
+top:70.5%;
+left:55%;
+border:solid #aaaaaa;
+}
+#c3{
+position:absolute;
+top:70%;
+left:30%;
+border:solid #aaaaaa;
+}
+
+
+#tess{
+position:absolute;
+top:75%;
+left:70%;
+}
+
+.ref{
+background-color:white;
+position:absolute;
+top:70%;
+width:27%;
+left:2%;
+border:solid #aaaaaa;
+}
+
+</style>
+</head>
+<body>
+<div class="bb">
+<header class="header">Notions</header>
+<h6 id="t1">Welcome to Flatland!</h6>
+
+<article class="container1">
+<p >&nbsp &nbsp &nbsp &nbsp To get a better understanding of dimensions imagine a fixed point.</p>
+It has no dimensions and is called adimensional.
+<p>&nbsp &nbsp &nbsp &nbsp Then let's imagine another point and draw a <span style="color:blue">line</span> between them.</p>
+<p>As you may know, a line has an infinite amount of points,all together have a lenght. </p>
+<p>We use the same analogy for lines and we get a 2D <span style="color:blue">plane</span>.</p>
+It has a lenght and a width.
+<p>&nbsp &nbsp &nbsp &nbsp Now let's put an infinite amount of planes one another,so we get 3D <span style="color:blue">space</span>.</p>
+It has lenght,width and height.
+<p>So with this analogy we can imagine that the fourth dimensional space is an infinite amount of 3D planes one over another.</p>
+<p>&nbsp &nbsp &nbsp &nbsp We can use the same method to add many more dimensions.</p>
+<p>&nbsp &nbsp &nbsp &nbsp Let's make a thought experiment.Imagine if we have a cross-section of a 2D plane.</p>
+<p>And a side-view of a 3D shape that is going trough the plane.</p>
+<p>For a suposed observer of the 2D plane,the object would seem to move.</p>
+<p>It is a common misconception that the fourth dimention is time, when it isn't.</p>
+<p>Time is abstract concept made byhumans to make sense of what is around them.We can say that the time is just movement in the 4D space,</p>
+as it is,in our example,the movement of 3D objects through a plane.
+<p>&nbsp &nbsp &nbsp &nbsp It's like the world around us,even us,is in higher dimensions,and what</p>
+we experience in our lives is just the projection of them in third dimensional space.
+<p>We might be complex higher dimentional beings,we might be eternal,and the past self and future self might be present as one,</p>
+we just travel forward on so called axis of time.This is just hypothetically speaking :)
+<hr>
+<p>&nbsp &nbsp &nbsp &nbsp You can learn about Flatland at:<a href="https://en.wikipedia.org/wiki/Flatland" target="_blank">this link.</a></p>
+</article>
+<section class="ref">
+<p>Click these links if you want to know more about higher dimensions:</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=rG6aIVGquOg"target="_blank">video1</a></li>
+<li><a href="https://www.youtube.com/watch?v=N0WjV6MmCyM"target="_blank">video2</a></li>
+<li><a href="https://www.youtube.com/watch?v=vvUX6uHqbm0"target="_blank">video3</a></li>
+</ul>
+</section>
+</div>
+<script type="application/processing">
+var x=30;
+var y=30;
+var radius=20;
+void setup()
+{size(501,501);
+
+}
+void draw()
+{
+background(150,255,150);
+strokeWeight(2);
+
+fill(5,5,255);//coordinates
+text(mouseX,mouseX%2,mouseY);
+text(mouseY,mouseX,mouseY%2+10);
+fill(255,150,150);//house
+rect(x,y,10,100);
+rect(x+10,y,90,10);
+rect(x+90,y+10,10,90);
+rect(x,y+100,30,10);
+rect(x+70,y+100,30,10);
+fill(5,200,255);//player color
+ellipse(mouseX,mouseY,radius,radius);//player
+//text
+fill(255,0,0);
+text("This is Flatland",10,10);
+if(mousePressed===true&&radius>-2){text("You escaped in 3D plane",200,200);
+radius--;
+}
+else if(radius<20)
+{radius++;}
+
+
+}
+
+
+</script>
+
+<canvas id="c1"></canvas>
+<script type="application/processing">
+var x=20;
+var y=20;
+void setup(){
+size(500,300);
+}
+void draw(){
+background(255,255,255);
+strokeWeight(3);
+point(x,y);
+fill(0,0,0);
+text("A Point",x+10,y+5);
+line(x,y+20,x+80,y+20);
+text("A Line",x+90,y+25);
+fill(255,255,255);
+rect(x,y+40,x+30,y+30);
+fill(0,0,0);
+text("A Square",x+60,y+70);
+//cube
+fill(255,255,255);
+rect(x,y+130,x+30,y+30);
+rect(x+20,y+150,x+30,y+30);
+line(x+1,y+131,x+20,y+150);
+line(x,y+180,x+20,y+200);
+line(x+50,y+131,x+70,y+150);
+line(x+50,y+150,x+50,y+180);
+line(x+10,y+180,x+50,y+180);
+line(x+50,y+180,x+70,y+200);
+fill(0,0,0);
+text("A Cube",x+80,y+170);
+
+//tesseract text
+
+text("A Hyper-cube(tesseract)",200,20);
+
+}
+
+</script>
+<canvas id="c2"></canvas>
+
+<script type="application/processing">
+var x=100;
+var y=40;
+var sx=100;
+var sy=40;
+void setup(){size(300,300);}
+void draw(){
+background(255,255);
+fill(0,0,0);
+text("click the image",10,60);
+text("Here is how it moves if we watch it from above",10,180);
+line(50,150,200,150);
+fill(200,50,230);
+quad(x+75,y,x+100,y,x+25,y+100,x,y+100);
+if(mousePressed===true&&y<160){
+y++;}
+else if(y>40){
+y--;}
+
+rect(sx,250,25,25);
+if(mousePressed===true&&sx<200){sx++;}
+else if(sx>=100){sx--;}
+}
+</script>
+<canvas id="c3"></canvas>
+<img id="tess" src="D:/webpages/Notions/images/Tesseract.gif"alt="tesseract" style="width:128;height:128">
+
+
+</body>
+</html>
